@@ -10,6 +10,7 @@ public class AddressBookMainClass {
 		System.out.println("*******WELCOME TO ADDRESS BOOK PROGRAM*******");
 		System.out.println("---------------------------------------------");
 		addressBookManager.addPerson();
+		addressBookManager.editPerson();
 		
 	}
 
