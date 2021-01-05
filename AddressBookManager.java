@@ -61,50 +61,84 @@ public class AddressBookManager implements AddressBookManagerInterface{
 					  						p.setPhone(phone);
 					  						System.out.println(p.toString());
 											System.out.println("*****Person Details Edited Successfully*****");
-											       break;
+											break;
 					  					case 2:
 					  						System.out.println("Enter New City Name");
 					  						String city = input.nextLine();
 					  						p.setCity(city);
 					  						System.out.println(p.toString());
 											System.out.println("*****Person Details Edited Successfully*****");
-												break;
+											break;
 					  					case 3:
 					  						System.out.println("Enter New State Name");
 					  						String state = input.nextLine();
 					  						p.setState(state);
 					  						System.out.println(p.toString());
 											System.out.println("*****Person Details Edited Successfully*****");
-												break;
+											break;
 					  					case 4:
 					  						System.out.println("Enter New Zip Code");
 					  						String zip = input.nextLine();
 					  						p.setZip(zip);
 					  						System.out.println(p.toString());
 											System.out.println("*****Person Details Edited Successfully*****");
-					  							break;
+					  						break;
 					  					case 5:
 					  						System.out.println("Enter New Zip Code");
 					  						String email = input.nextLine();
 					  						p.setEmail(email);
 					  						System.out.println(p.toString());
 											System.out.println("*****Person Details Edited Successfully*****");
-												break;
+											break;
 					  					case 6:
 					  						exists = false;
-					  							break;
+					  						break;
 					  					default :
 				  						System.out.println("Invalid input");
-					  							break;
+					  					break;
 					  				}
 					  		  }
 				  		}
-
 				  else {
-					  			System.out.println("Record Not Found");
-
+					  System.out.println("Record Not Found");
 				  	}
 		      }
  	  	}
+ 	
+ 	public void deletePerson() {
+
+		System.out.println("Enter person First Name to delete details");
+		Scanner todelete = new Scanner(System.in);
+		boolean delete = false;
+		String firstName = todelete.nextLine();
+
+				for (int i=0; i<personData.size(); i++) {
+					String name = personData.get(i).firstName;
+						if (firstName.equals(name)) {
+							delete = true;	
+								while (delete == true) {
+									System.out.println("**Warning: Are you sure you want to delete** \n"
+											   			+"Enter 1 for yes\n"
+											   			+ "Enter 2 for Quit");
+									int entry = todelete.nextInt();	
+											switch (entry) {
+												case 1:
+													personData.remove(i);
+													System.out.println("Person details deleted");
+												 	break;
+												case 2:
+													delete = false;
+													break;
+												default:
+													System.out.println("Invalid Entry");
+													break;
+											}
+								    }
+							}		
+					   else {		
+						   System.out.println("Record Not Found");		
+					   }		
+				   }
+ 			}
 
 }
