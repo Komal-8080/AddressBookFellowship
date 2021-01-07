@@ -27,7 +27,7 @@ public class AddressBookManager implements AddressBookManagerInterface{
 		String email = data.nextLine();
 		ContactPerson p = new ContactPerson(firstName, lastName, phone, city, state, zip, email);
 		personData.add(p);
-		System.out.println("Array of Person : "+personData);
+		System.out.println("Array of Person : \n"+personData);
 
 	}
  	
