@@ -5,45 +5,34 @@ import java.util.Scanner;
 public class AddressBookMainClass {
 
 	public static void main(String[] args) {
-		
-		AddressBookManager addressBookManager = new AddressBookManager();
-		
+
+		//Creating Object to refer to AddressBook Manager Interface Implementation Functionalities
+		AddressBookManagerInterfaceImplementation addressBookManagerInterfaceImplementation = new AddressBookManagerInterfaceImplementation();
+
+		//Welcome Message
 		System.out.println("---------------------------------------------");
 		System.out.println("*******WELCOME TO ADDRESS BOOK PROGRAM*******");
 		System.out.println("---------------------------------------------");
-		
-		int openAb=0;
-		while (openAb == 0) {
-			System.out.println("");
-			System.out.println("1]Add Person\n" 
-								+ "2]Edit Person\n" 
-								+ "3]Delete Person\n" 
-								+ "4]Quit");
-			System.out.println("Select from above Options");
-			Scanner num = new Scanner(System.in);
-			int selectedValue = num.nextInt();
-
-	             switch (selectedValue) {
-			case 1:			      
-			      System.out.println("");
-			      addressBookManager.addPerson();
+		int loop = 0;
+		while (loop == 0) {
+			System.out.println("1]Create New AddressBook\n" + "2]Open AddressBook\n" + "3]Quit");
+			System.out.println("Select from Above Options");
+			Scanner input = new Scanner(System.in);
+			int option = input.nextInt();
+			switch (option) {
+			case 1:
+				addressBookManagerInterfaceImplementation.newAddressBook();
 				break;
 			case 2:
-			      System.out.println("");
-			      addressBookManager.editPerson();
-			      break;
+				addressBookManagerInterfaceImplementation.openAddressBook();
+				break;
 			case 3:
-			      System.out.println("");
-			      addressBookManager.deletePerson();
-			      break;
-			case 4:
-				openAb=1;
+				loop = 1;
+				System.out.println("***** THANK YOU *****");
 				break;
 			default:
-				System.out.println("Invalid Option");
-				break;
-	              }
+				System.out.println("Invalid Input !!!");
 			}
-	  }
-
+		}
+	}
 }
