@@ -31,7 +31,7 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		String email = data.nextLine();
 		ContactPerson p = new ContactPerson(firstName, lastName, phone, city, state, zip, email);
 		personDataArray.add(p);
-		System.out.println("Person Array "+ personDataArray);
+		System.out.println("Person Array " + personDataArray);
 		System.out.println("Enter Address Book Name to save Person Details");
 		String addressBookName = data.nextLine();
 		personMap.put(addressBookName, personDataArray);
@@ -115,7 +115,7 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		Scanner todelete = new Scanner(System.in);
 		boolean delete = false;
 		String firstName = todelete.nextLine();
-		for (int i=0; i<personDataArray.size(); i++) {
+		for (int i = 0; i < personDataArray.size(); i++) {
 			String name = personDataArray.get(i).firstName;
 			if (firstName.equals(name)) {
 				delete = true;
@@ -141,7 +141,7 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 			}
 		}
 	}
-	
+
 	//Method to view Person details in Address Book
 	public void displayPerson() {
 
