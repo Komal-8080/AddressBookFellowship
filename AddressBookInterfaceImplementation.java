@@ -1,11 +1,9 @@
 package addressBookFellowship;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
 
 public class AddressBookInterfaceImplementation implements AddressBookInterface {
@@ -46,9 +44,6 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		Scanner toedit = new Scanner(System.in);
 		String firstName = toedit.nextLine();
 		boolean exists = false;
-		//for (Map.Entry<String, List<ContactPerson>> input : personData.entrySet()) {
-			//String key = input.getKey();
-            //List<ContactPerson> values = input.getValue();
 		for (ContactPerson p:personDataArray) {
 			if (firstName.equals(p.firstName)) {
 				exists = true;
@@ -120,11 +115,6 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		Scanner todelete = new Scanner(System.in);
 		boolean delete = false;
 		String firstName = todelete.nextLine();
-		//for (Map.Entry<String, List<ContactPerson>> input : personData.entrySet()) {
-			//String key = input.getKey();
-            //List<ContactPerson> values = input.getValue();
-           // for (ContactPerson p:values) { {
-			//
 		for (int i=0; i<personDataArray.size(); i++) {
 			String name = personDataArray.get(i).firstName;
 			if (firstName.equals(name)) {
@@ -151,9 +141,7 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 			}
 		}
 	}
-		//}
-	//}
-
+	
 	//Method to view Person details in Address Book
 	public void displayPerson() {
 
