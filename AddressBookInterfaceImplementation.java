@@ -1,13 +1,17 @@
 package addressBookFellowship;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class AddressBookInterfaceImplementation implements AddressBookInterface {
 
-	// Hash Map Declaration to store AddressBooks with respect to person details
-	Map<String, ContactPerson> personData = new HashMap<String, ContactPerson>();
+	// Array List and Hash Map with List Declaration to store AddressBooks with
+	// respect to person details
+	ArrayList<ContactPerson> personDataArray = new ArrayList<ContactPerson>();
+	Map<String, List<ContactPerson>> personMap = new HashMap<>();
 
 	public void addPerson() {
 
@@ -27,9 +31,11 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		System.out.println("Enter Email Id");
 		String email = data.nextLine();
 		ContactPerson p = new ContactPerson(firstName, lastName, phone, city, state, zip, email);
+		personDataArray.add(p);
+		System.out.println("Person Array " + personDataArray);
 		System.out.println("Enter Address Book Name to save Person Details");
 		String addressBookName = data.nextLine();
-		personData.put(addressBookName, p);
+		personMap.put(addressBookName, personDataArray);
 	}
 
 	// Method to edit Person details
@@ -39,7 +45,7 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		Scanner toedit = new Scanner(System.in);
 		String firstName = toedit.nextLine();
 		boolean exists = false;
-		for (ContactPerson p : personData.values()) {
+		for (ContactPerson p : personDataArray) {
 			if (firstName.equals(p.firstName)) {
 				exists = true;
 				while (exists == true) {
@@ -109,8 +115,8 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		Scanner todelete = new Scanner(System.in);
 		boolean delete = false;
 		String firstName = todelete.nextLine();
-		for (int i = 0; i < personData.size(); i++) {
-			String name = personData.get(i).firstName;
+		for (int i = 0; i < personDataArray.size(); i++) {
+			String name = personDataArray.get(i).firstName;
 			if (firstName.equals(name)) {
 				delete = true;
 				while (delete == true) {
@@ -119,7 +125,7 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 					int entry = todelete.nextInt();
 					switch (entry) {
 					case 1:
-						personData.remove(i);
+						personDataArray.remove(i);
 						System.out.println("Person details deleted");
 						break;
 					case 2:
@@ -136,7 +142,7 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		}
 	}
 
-	//Method to view Person details in Address Book
+	// Method to view Person details in Address Book
 	public void displayPerson() {
 
 		int display = 0;
@@ -150,7 +156,7 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 				Scanner data = new Scanner(System.in);
 				String addressBookName = data.nextLine();
 				System.out.println(addressBookName + " :\n");
-				System.out.println(personData.get(addressBookName));
+				System.out.println(personMap.get(addressBookName));
 				break;
 			case 2:
 				display = 1;

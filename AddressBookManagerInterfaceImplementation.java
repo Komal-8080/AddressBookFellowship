@@ -23,7 +23,7 @@ public class AddressBookManagerInterfaceImplementation implements AddressBookMan
 				System.out.println("Enter Address Book Name to create New Address Book");
 				Scanner abName = new Scanner(System.in);
 				String addressBookName = abName.nextLine();
-				addressBookInterfaceImplementation.personData.put(addressBookName, null);
+				addressBookInterfaceImplementation.personMap.put(addressBookName, null);
 				System.out.println(
 						"New Address Book Created SuccessFully go to Open address book to enter person details");
 			case 2:
@@ -45,7 +45,7 @@ public class AddressBookManagerInterfaceImplementation implements AddressBookMan
 			System.out.println("1] To Open Address Book List\n" + "2] Back to Menu ");
 			Scanner value = new Scanner(System.in);
 			int in = value.nextInt();
-			Set<String> addressBookList = addressBookInterfaceImplementation.personData.keySet();
+			Set<String> addressBookList = addressBookInterfaceImplementation.personMap.keySet();
 			for (String key : addressBookList) {
 				System.out.println(key);
 			}
