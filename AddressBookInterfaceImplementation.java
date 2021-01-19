@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -173,7 +174,7 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		}
 	}
 
-	//Method to check and remove if person details are repeated
+	// Method to check and remove if person details are repeated
 	public void FindDuplicatePersonInAddressBook() {
 		Set<String> items = new HashSet<>();
 
@@ -184,4 +185,29 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 			personDataArray.remove(p);
 		}
 	}
+
+	public void SearchPersonInACity(String city) {
+		for (Entry<String, List<ContactPerson>> entry : personMap.entrySet()) {
+			System.out.println("Address Book : " + entry.getKey());
+			List<ContactPerson> list = personDataArray.stream().filter(p -> p.getCity().equals(city))
+					.collect(Collectors.toList());
+			for (ContactPerson p : list) {
+				System.out.println(p.firstName);
+			}
+
+		}
+	}
+	
+	public void SearchPersonInAState(String state) {
+		for (Entry<String, List<ContactPerson>> entry : personMap.entrySet()) {
+			System.out.println("Address Book : " + entry.getKey());
+			List<ContactPerson> list = personDataArray.stream().filter(p -> p.getState().equals(state))
+					.collect(Collectors.toList());
+			for (ContactPerson p : list) {
+				System.out.println(p.firstName);
+			}
+
+		}
+	}
+
 }
