@@ -15,7 +15,7 @@ public class AddressBookMainClass {
 		System.out.println("---------------------------------------------");
 		int loop = 0;
 		while (loop == 0) {
-			System.out.println("1]Create New AddressBook\n" + "2]Open AddressBook\n" + "3]Quit");
+			System.out.println("1]New AddressBook\n" + "2]Open AddressBook\n" + "3]Quit");
 			System.out.println("Select from Above Options");
 			Scanner input = new Scanner(System.in);
 			int option = input.nextInt();

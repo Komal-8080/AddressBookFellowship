@@ -2,18 +2,22 @@ package addressBookFellowship;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class AddressBookInterfaceImplementation implements AddressBookInterface {
 
-	// Array List and Hash Map with List Declaration to store AddressBooks with respect to person details
-	ArrayList<ContactPerson> personDataArray = new ArrayList<ContactPerson>();
-	Map<String, List<ContactPerson>> personMap = new HashMap< >();
+	// Array List and Hash Map with List Declaration to store AddressBooks with
+	// respect to person details
+	List<ContactPerson> personDataArray = new ArrayList<ContactPerson>();
+	Map<String, List<ContactPerson>> personMap = new HashMap<>();
 
+	// Method To Add Person Details
 	public void addPerson() {
-
 		Scanner data = new Scanner(System.in);
 		System.out.println("Enter First Name");
 		String firstName = data.nextLine();
@@ -31,10 +35,12 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		String email = data.nextLine();
 		ContactPerson p = new ContactPerson(firstName, lastName, phone, city, state, zip, email);
 		personDataArray.add(p);
+		FindDuplicatePersonInAddressBook();
 		System.out.println("Person Array " + personDataArray);
 		System.out.println("Enter Address Book Name to save Person Details");
 		String addressBookName = data.nextLine();
 		personMap.put(addressBookName, personDataArray);
+		System.out.println("*****Person Details Saved Successfully*****");
 	}
 
 	// Method to edit Person details
@@ -44,7 +50,7 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		Scanner toedit = new Scanner(System.in);
 		String firstName = toedit.nextLine();
 		boolean exists = false;
-		for (ContactPerson p:personDataArray) {
+		for (ContactPerson p : personDataArray) {
 			if (firstName.equals(p.firstName)) {
 				exists = true;
 				while (exists == true) {
@@ -106,7 +112,6 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 			}
 		}
 	}
-	
 
 	// Method to delete Person details
 	public void deletePerson() {
@@ -142,7 +147,7 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		}
 	}
 
-	//Method to view Person details in Address Book
+	// Method to view Person details in Address Book
 	public void displayPerson() {
 
 		int display = 0;
@@ -165,6 +170,18 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 				System.out.println("Invalid Entry");
 				break;
 			}
+		}
+	}
+
+	//Method to check and remove if person details are repeated
+	public void FindDuplicatePersonInAddressBook() {
+		Set<String> items = new HashSet<>();
+
+		Set<ContactPerson> items1 = personDataArray.stream().filter(n -> !items.add(n.firstName))
+				.collect(Collectors.toSet());
+		for (ContactPerson p : items1) {
+			System.out.println(p.firstName + " is Duplicate entry cannot add to Address Book");
+			personDataArray.remove(p);
 		}
 	}
 }

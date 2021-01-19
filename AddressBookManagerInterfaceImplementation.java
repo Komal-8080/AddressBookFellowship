@@ -13,14 +13,12 @@ public class AddressBookManagerInterfaceImplementation implements AddressBookMan
 
 		int newAb = 0;
 		while (newAb == 0) {
-
 			System.out.println("1] Press 1 to Create New Address Book\n" + "2] Back to Menu");
 			Scanner press = new Scanner(System.in);
 			int input = press.nextInt();
-
 			switch (input) {
 			case 1:
-				System.out.println("Enter Address Book Name to create New Address Book");
+				System.out.println("Enter Address Book Name");
 				Scanner abName = new Scanner(System.in);
 				String addressBookName = abName.nextLine();
 				addressBookInterfaceImplementation.personMap.put(addressBookName, null);
@@ -52,7 +50,7 @@ public class AddressBookManagerInterfaceImplementation implements AddressBookMan
 			switch (in) {
 			case 1:
 				System.out.println("");
-				System.out.println("Enter Address Book Name in which you want to make changes");
+				System.out.println("Enter Address Book Name");
 				Scanner data = new Scanner(System.in);
 				String addressBookName = data.nextLine();
 				int openAb = 0;
@@ -67,7 +65,6 @@ public class AddressBookManagerInterfaceImplementation implements AddressBookMan
 					case 1:
 						System.out.println("Enter Person Details");
 						addressBookInterfaceImplementation.addPerson();
-						System.out.println("*****Person Details Saved Successfully*****");
 						break;
 					case 2:
 						System.out.println("");
