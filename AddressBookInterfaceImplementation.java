@@ -212,4 +212,18 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		}
 	}
 
+	public void countByCity(String city) {
+		for (Map.Entry<String, List<ContactPerson>> entry : personMap.entrySet()) {
+			int list = Math.toIntExact(personDataArray.stream().filter(p -> p.getCity().equals(city)).count());
+			System.out.println("Person Count In This City Is : " + list);
+		}
+	}
+	
+	public void countByState(String state) {
+		for (Map.Entry<String, List<ContactPerson>> entry : personMap.entrySet()) {
+			int list = Math.toIntExact(personDataArray.stream().filter(p -> p.getCity().equals(state)).count());
+			System.out.println("Person Count In This City Is : " + list);
+		}
+	}
+
 }

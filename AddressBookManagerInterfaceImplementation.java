@@ -134,4 +134,36 @@ public class AddressBookManagerInterfaceImplementation implements AddressBookMan
 
 		}
 	}
+	
+	//Method to count person in a city or state
+	public void countPerson() {
+		int countlist = 0;
+		while (countlist == 0) {
+			System.out.println("1] To Get Person Count In City\n" + "2]To Get Person Count In State "
+					+ "3] Back to Menu ");
+			Scanner value = new Scanner(System.in);
+			int entry = value.nextInt();
+			switch (entry) {
+			case 1:
+				System.out.println("Enter City Name");
+				Scanner input1 = new Scanner(System.in);
+				String city = input1.nextLine();
+				addressBookInterfaceImplementation.countByCity(city);
+				break;
+			case 2:
+				System.out.println("Enter State Name");
+				Scanner input2 = new Scanner(System.in);
+				String state = input2.nextLine();
+				addressBookInterfaceImplementation.countByState(state);
+				break;
+			case 3:
+				countlist = 1;
+				break;
+			default:
+				System.out.println("Invalid Option");
+				break;
+			}
+
+		}
+	}
 }

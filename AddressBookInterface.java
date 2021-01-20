@@ -16,4 +16,8 @@ public interface AddressBookInterface {
 	public void SearchPersonInACity(String city);
 
 	public void SearchPersonInAState(String state);
+
+	public void countByCity(String city);
+	
+	public void countByState(String state);
 }
