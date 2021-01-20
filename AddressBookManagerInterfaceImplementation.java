@@ -20,7 +20,11 @@ public class AddressBookManagerInterfaceImplementation implements AddressBookMan
 				System.out.println("Enter Address Book Name");
 				Scanner abName = new Scanner(System.in);
 				String addressBookName = abName.nextLine();
-				addressBookInterfaceImplementation.personMap.put(addressBookName, null);
+				boolean keyPresent = addressBookInterfaceImplementation.personMap.containsKey(addressBookName);
+				if (keyPresent)
+					System.out.println("AddressBook Already exists");
+				else
+					addressBookInterfaceImplementation.personMap.put(addressBookName, null);
 				System.out.println(
 						"New Address Book Created SuccessFully go to Open address book to enter person details");
 			case 2:
@@ -52,37 +56,42 @@ public class AddressBookManagerInterfaceImplementation implements AddressBookMan
 				Scanner data = new Scanner(System.in);
 				String addressBookName = data.nextLine();
 				int openAb = 0;
-				while (openAb == 0) {
-					System.out.println("");
-					System.out.println(
-							"1.Add Person\n" + "2.Edit Person\n" + "3.Delete Person\n" + "4.Display\n" + "5.Quit");
-					System.out.println("Select from above Options");
-					Scanner num = new Scanner(System.in);
-					int selectedValue = num.nextInt();
-					switch (selectedValue) {
-					case 1:
-						System.out.println("Enter Person Details");
-						addressBookInterfaceImplementation.addPerson();
-						break;
-					case 2:
+				boolean keyPresent = addressBookInterfaceImplementation.personMap.containsKey(addressBookName);
+				if (keyPresent) {
+					while (openAb == 0) {
 						System.out.println("");
-						addressBookInterfaceImplementation.editPerson();
-						break;
-					case 3:
-						System.out.println("");
-						addressBookInterfaceImplementation.deletePerson();
-						break;
-					case 4:
-						System.out.println("");
-						addressBookInterfaceImplementation.displayPerson();
-						break;
-					case 5:
-						openAb = 1;
-						break;
-					default:
-						System.out.println("Invalid Option");
-						break;
+						System.out.println(
+								"1.Add Person\n" + "2.Edit Person\n" + "3.Delete Person\n" + "4.Display\n" + "5.Quit");
+						System.out.println("Select from above Options");
+						Scanner num = new Scanner(System.in);
+						int selectedValue = num.nextInt();
+						switch (selectedValue) {
+						case 1:
+							System.out.println("Enter Person Details");
+							addressBookInterfaceImplementation.addPerson();
+							break;
+						case 2:
+							System.out.println("");
+							addressBookInterfaceImplementation.editPerson();
+							break;
+						case 3:
+							System.out.println("");
+							addressBookInterfaceImplementation.deletePerson();
+							break;
+						case 4:
+							System.out.println("");
+							addressBookInterfaceImplementation.displayPerson();
+							break;
+						case 5:
+							openAb = 1;
+							break;
+						default:
+							System.out.println("Invalid Option");
+							break;
+						}
 					}
+				} else {
+					System.out.println(addressBookName + " does not exisits");
 				}
 			case 2:
 				ablist = 1;
@@ -94,6 +103,7 @@ public class AddressBookManagerInterfaceImplementation implements AddressBookMan
 		}
 	}
 
+	// Method To search and view person contact in a city or state
 	public void searchPerson() {
 		int searchlist = 0;
 		while (searchlist == 0) {

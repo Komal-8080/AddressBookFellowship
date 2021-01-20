@@ -10,10 +10,10 @@ public interface AddressBookInterface {
 	public void deletePerson();
 
 	public void displayPerson();
-	
+
 	public void FindDuplicatePersonInAddressBook();
-	
+
 	public void SearchPersonInACity(String city);
-	
-	public void SearchPersonInAState(String state); 
+
+	public void SearchPersonInAState(String state);
 }

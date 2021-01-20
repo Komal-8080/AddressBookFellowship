@@ -40,8 +40,13 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		System.out.println("Person Array " + personDataArray);
 		System.out.println("Enter Address Book Name to save Person Details");
 		String addressBookName = data.nextLine();
-		personMap.put(addressBookName, personDataArray);
-		System.out.println("*****Person Details Saved Successfully*****");
+		boolean keyPresent = personMap.containsKey(addressBookName);
+		if (keyPresent) {
+			personMap.put(addressBookName, personDataArray);
+			System.out.println("*****Person Details Saved Successfully*****");
+		} else {
+			System.out.println(addressBookName + " does not exists");
+		}
 	}
 
 	// Method to edit Person details
@@ -177,7 +182,6 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 	// Method to check and remove if person details are repeated
 	public void FindDuplicatePersonInAddressBook() {
 		Set<String> items = new HashSet<>();
-
 		Set<ContactPerson> items1 = personDataArray.stream().filter(n -> !items.add(n.firstName))
 				.collect(Collectors.toSet());
 		for (ContactPerson p : items1) {
@@ -188,25 +192,23 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 
 	public void SearchPersonInACity(String city) {
 		for (Entry<String, List<ContactPerson>> entry : personMap.entrySet()) {
-			System.out.println("Address Book : " + entry.getKey());
 			List<ContactPerson> list = personDataArray.stream().filter(p -> p.getCity().equals(city))
 					.collect(Collectors.toList());
+			System.out.println("Address Book : " + entry.getKey());
 			for (ContactPerson p : list) {
 				System.out.println(p.firstName);
 			}
-
 		}
 	}
-	
+
 	public void SearchPersonInAState(String state) {
 		for (Entry<String, List<ContactPerson>> entry : personMap.entrySet()) {
-			System.out.println("Address Book : " + entry.getKey());
 			List<ContactPerson> list = personDataArray.stream().filter(p -> p.getState().equals(state))
 					.collect(Collectors.toList());
+			System.out.println("Address Book : " + entry.getKey());
 			for (ContactPerson p : list) {
 				System.out.println(p.firstName);
 			}
-
 		}
 	}
 

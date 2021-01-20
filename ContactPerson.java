@@ -22,7 +22,7 @@ public class ContactPerson {
 		this.email = email;
 	}
 
-	//Getter and setters to get and set person details
+	// Getter and setters to get and set person details
 	public String getFirstName() {
 		return firstName;
 	}
