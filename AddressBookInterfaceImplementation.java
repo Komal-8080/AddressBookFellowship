@@ -1,6 +1,7 @@
 package addressBookFellowship;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -218,11 +219,23 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 			System.out.println("Person Count In This City Is : " + list);
 		}
 	}
-	
+
 	public void countByState(String state) {
 		for (Map.Entry<String, List<ContactPerson>> entry : personMap.entrySet()) {
+			System.out.println("Address Book : " + entry.getKey());
 			int list = Math.toIntExact(personDataArray.stream().filter(p -> p.getCity().equals(state)).count());
 			System.out.println("Person Count In This City Is : " + list);
+		}
+	}
+
+	public void SortPersonContactInAlphabeticalOrder() {
+		for (Map.Entry<String, List<ContactPerson>> entry : personMap.entrySet()) {
+			System.out.println("Address Book : " + entry.getKey());
+			List<ContactPerson> list = personDataArray.stream()
+					.sorted(Comparator.comparing(ContactPerson::getFirstName)).collect(Collectors.toList());
+			for (ContactPerson p : list) {
+				System.out.println(p.firstName);
+			}
 		}
 	}
 

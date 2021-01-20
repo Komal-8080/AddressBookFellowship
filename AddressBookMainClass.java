@@ -16,7 +16,8 @@ public class AddressBookMainClass {
 		System.out.println("---------------------------------------------");
 		int loop = 0;
 		while (loop == 0) {
-			System.out.println("1]New AddressBook\n" + "2]Open AddressBook\n" + "3]Search Person\n" + "4] Get Count\n" +"5]Quit");
+			System.out.println(
+					"1]New AddressBook\n" + "2]Open AddressBook\n" + "3]Search Person\n" + "4]Get Count\n" + "5]Sort By Name\n"+ "6]Quit");
 			System.out.println("Select from Above Options");
 			Scanner input = new Scanner(System.in);
 			int option = input.nextInt();
@@ -34,6 +35,9 @@ public class AddressBookMainClass {
 				addressBookManagerInterfaceImplementation.countPerson();
 				break;
 			case 5:
+				addressBookManagerInterfaceImplementation.sortPersonContactByName();
+				break;
+			case 6:
 				loop = 1;
 				System.out.println("***** THANK YOU *****");
 				break;

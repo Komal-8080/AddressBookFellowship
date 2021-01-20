@@ -6,9 +6,11 @@ public interface AddressBookManagerInterface {
 	public void newAddressBook();
 
 	public void openAddressBook();
-	
+
 	public void searchPerson();
-	
-	public void countPerson(); 
+
+	public void countPerson();
+
+	public void sortPersonContactByName();
 
 }

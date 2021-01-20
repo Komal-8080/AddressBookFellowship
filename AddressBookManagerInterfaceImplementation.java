@@ -134,13 +134,13 @@ public class AddressBookManagerInterfaceImplementation implements AddressBookMan
 
 		}
 	}
-	
-	//Method to count person in a city or state
+
+	// Method to count person in a city or state
 	public void countPerson() {
 		int countlist = 0;
 		while (countlist == 0) {
-			System.out.println("1] To Get Person Count In City\n" + "2]To Get Person Count In State "
-					+ "3] Back to Menu ");
+			System.out.println(
+					"1] To Get Person Count In City\n" + "2]To Get Person Count In State " + "3] Back to Menu ");
 			Scanner value = new Scanner(System.in);
 			int entry = value.nextInt();
 			switch (entry) {
@@ -164,6 +164,27 @@ public class AddressBookManagerInterfaceImplementation implements AddressBookMan
 				break;
 			}
 
+		}
+	}
+
+	// Method to sort entries in alphabetical order
+	public void sortPersonContactByName() {
+		int sort = 0;
+		while (sort == 0) {
+			System.out.println("1] To Sort Entries Alphabetically\n" + "2] Back to Menu ");
+			Scanner value = new Scanner(System.in);
+			int in = value.nextInt();
+			switch (in) {
+			case 1:
+				addressBookInterfaceImplementation.SortPersonContactInAlphabeticalOrder();
+				break;
+			case 2:
+				sort = 1;
+				break;
+			default:
+				System.out.println("Invalid Option");
+				break;
+			}
 		}
 	}
 }

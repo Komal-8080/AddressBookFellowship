@@ -18,6 +18,8 @@ public interface AddressBookInterface {
 	public void SearchPersonInAState(String state);
 
 	public void countByCity(String city);
-	
+
 	public void countByState(String state);
+	
+	public void SortPersonContactInAlphabeticalOrder();
 }
