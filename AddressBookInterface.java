@@ -22,4 +22,10 @@ public interface AddressBookInterface {
 	public void countByState(String state);
 	
 	public void SortPersonContactInAlphabeticalOrder();
+	
+	public void SortPersonContactByCity();
+	
+	public void SortPersonContactByState();
+	
+	public void SortPersonContactByZip();
 }

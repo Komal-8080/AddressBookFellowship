@@ -140,7 +140,7 @@ public class AddressBookManagerInterfaceImplementation implements AddressBookMan
 		int countlist = 0;
 		while (countlist == 0) {
 			System.out.println(
-					"1] To Get Person Count In City\n" + "2]To Get Person Count In State " + "3] Back to Menu ");
+					"1]To Get Person Count In City\n" + "2]To Get Person Count In State " + "3]Back to Menu ");
 			Scanner value = new Scanner(System.in);
 			int entry = value.nextInt();
 			switch (entry) {
@@ -168,10 +168,10 @@ public class AddressBookManagerInterfaceImplementation implements AddressBookMan
 	}
 
 	// Method to sort entries in alphabetical order
-	public void sortPersonContactByName() {
+	public void sortPersonContact() {
 		int sort = 0;
 		while (sort == 0) {
-			System.out.println("1] To Sort Entries Alphabetically\n" + "2] Back to Menu ");
+			System.out.println("1]To Sort Entries Alphabetically\n" + "2]To Sort Entries By City\n" +"3]To Sort Entries By State\n"+"4]To Sort Entries By Zip\n"+"5]Back to Menu ");
 			Scanner value = new Scanner(System.in);
 			int in = value.nextInt();
 			switch (in) {
@@ -179,6 +179,15 @@ public class AddressBookManagerInterfaceImplementation implements AddressBookMan
 				addressBookInterfaceImplementation.SortPersonContactInAlphabeticalOrder();
 				break;
 			case 2:
+				addressBookInterfaceImplementation.SortPersonContactByCity();
+				break;
+			case 3:    
+				addressBookInterfaceImplementation.SortPersonContactByState();
+				break;
+			case 4:
+				addressBookInterfaceImplementation.SortPersonContactByZip();
+				break;
+			case 5:
 				sort = 1;
 				break;
 			default:

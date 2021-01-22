@@ -11,6 +11,6 @@ public interface AddressBookManagerInterface {
 
 	public void countPerson();
 
-	public void sortPersonContactByName();
+	public void sortPersonContact();
 
 }

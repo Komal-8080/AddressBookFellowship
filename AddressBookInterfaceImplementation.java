@@ -191,6 +191,7 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		}
 	}
 
+	// Method to search and view person in a city
 	public void SearchPersonInACity(String city) {
 		for (Entry<String, List<ContactPerson>> entry : personMap.entrySet()) {
 			List<ContactPerson> list = personDataArray.stream().filter(p -> p.getCity().equals(city))
@@ -202,6 +203,7 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		}
 	}
 
+	// Method to search and view person in a state
 	public void SearchPersonInAState(String state) {
 		for (Entry<String, List<ContactPerson>> entry : personMap.entrySet()) {
 			List<ContactPerson> list = personDataArray.stream().filter(p -> p.getState().equals(state))
@@ -213,6 +215,7 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		}
 	}
 
+	// Method to count person in a city
 	public void countByCity(String city) {
 		for (Map.Entry<String, List<ContactPerson>> entry : personMap.entrySet()) {
 			int list = Math.toIntExact(personDataArray.stream().filter(p -> p.getCity().equals(city)).count());
@@ -220,6 +223,7 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		}
 	}
 
+	// Method to count person in a state
 	public void countByState(String state) {
 		for (Map.Entry<String, List<ContactPerson>> entry : personMap.entrySet()) {
 			System.out.println("Address Book : " + entry.getKey());
@@ -228,6 +232,7 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 		}
 	}
 
+	// Method to sort person in address book alphabetically
 	public void SortPersonContactInAlphabeticalOrder() {
 		for (Map.Entry<String, List<ContactPerson>> entry : personMap.entrySet()) {
 			System.out.println("Address Book : " + entry.getKey());
@@ -235,6 +240,42 @@ public class AddressBookInterfaceImplementation implements AddressBookInterface 
 					.sorted(Comparator.comparing(ContactPerson::getFirstName)).collect(Collectors.toList());
 			for (ContactPerson p : list) {
 				System.out.println(p.firstName);
+			}
+		}
+	}
+
+	// Method to sort person in address book by city
+	public void SortPersonContactByCity() {
+		for (Map.Entry<String, List<ContactPerson>> entry : personMap.entrySet()) {
+			System.out.println("Address Book : " + entry.getKey());
+			List<ContactPerson> list = personDataArray.stream().sorted(Comparator.comparing(ContactPerson::getCity))
+					.collect(Collectors.toList());
+			for (ContactPerson p : list) {
+				System.out.println("City:" + p.city + "  PersonName:" + p.firstName);
+			}
+		}
+	}
+
+	// Method to sort person in address book by state
+	public void SortPersonContactByState() {
+		for (Map.Entry<String, List<ContactPerson>> entry : personMap.entrySet()) {
+			System.out.println("Address Book : " + entry.getKey());
+			List<ContactPerson> list = personDataArray.stream().sorted(Comparator.comparing(ContactPerson::getState))
+					.collect(Collectors.toList());
+			for (ContactPerson p : list) {
+				System.out.println("City:" + p.state + "  PersonName:" + p.firstName);
+			}
+		}
+	}
+
+	// Method to sort person in address book by zip
+	public void SortPersonContactByZip() {
+		for (Map.Entry<String, List<ContactPerson>> entry : personMap.entrySet()) {
+			System.out.println("Address Book : " + entry.getKey());
+			List<ContactPerson> list = personDataArray.stream().sorted(Comparator.comparing(ContactPerson::getZip))
+					.collect(Collectors.toList());
+			for (ContactPerson p : list) {
+				System.out.println("City:" + p.zip + "  PersonName:" + p.firstName);
 			}
 		}
 	}

@@ -35,7 +35,7 @@ public class AddressBookMainClass {
 				addressBookManagerInterfaceImplementation.countPerson();
 				break;
 			case 5:
-				addressBookManagerInterfaceImplementation.sortPersonContactByName();
+				addressBookManagerInterfaceImplementation.sortPersonContact();
 				break;
 			case 6:
 				loop = 1;
