@@ -1,6 +1,5 @@
 package AddressBook.IOStreams;
 
-//AddressBook With File-IOStreams
 import java.util.List;
 import java.util.Scanner;
 
@@ -50,5 +49,4 @@ public class AddressBookService {
 			return new AddressBookFileIOService().countEntries();
 		return AddressBookList.size();
 	}
-
 }
